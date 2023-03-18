@@ -5,7 +5,8 @@ import com.carro.demo.service.CarroService;
 
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+
+import java.util.Set;
 
 
 @RestController
@@ -25,9 +26,21 @@ public class CarroController {
         service.insere(carro);
 
     }
+
     @GetMapping
-    public List<Carro> retornaTudo() {
-       return service.retornaTudo();
+    public Set<Carro> retornaTudo() {
+        return service.retornaTudo();
 
     }
+
+    @DeleteMapping
+    public boolean delete(@RequestBody Carro carro) {
+        return service.delete(carro);
+    }
+
+    @PatchMapping
+    public boolean atualizar(@RequestBody Carro carro) {
+        return service.atualizar(carro);
+    }
+
 }

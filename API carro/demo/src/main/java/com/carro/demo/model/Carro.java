@@ -1,5 +1,7 @@
 package com.carro.demo.model;
 
+import java.util.Objects;
+
 public class Carro {
 
     private String cor;
@@ -37,5 +39,18 @@ public class Carro {
 
     public void setQuantidadeDePortas(int quantidadeDePortas) {
         this.quantidadeDePortas = quantidadeDePortas;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;                                 //<-----esse metodo garanti que objeto seja unico
+        if (o == null || getClass() != o.getClass()) return false;
+        Carro carro = (Carro) o;
+        return placa.equals(carro.placa);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(placa);
     }
 }

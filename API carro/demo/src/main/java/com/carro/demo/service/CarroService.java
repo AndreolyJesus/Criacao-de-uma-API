@@ -5,6 +5,7 @@ import com.carro.demo.repository.CarroRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 
@@ -14,13 +15,25 @@ public class CarroService {
 
     public CarroService() {              //<----contrutores
         repository = new CarroRepository();
+
     }
 
     public void insere(Carro carro) {
         repository.insere(carro);
+
     }
 
-    public List<Carro> retornaTudo() {
-       return repository.retornaTudo();
+    public Set<Carro> retornaTudo() {
+        return repository.retornaTudo();
+
+    }
+
+    public boolean delete(Carro carro) {
+        return repository.delete(carro);
+    }
+
+    public boolean atualizar(Carro carro) {
+
+        return repository.atualizar(carro);
     }
 }
